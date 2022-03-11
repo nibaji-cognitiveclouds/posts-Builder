@@ -9,7 +9,15 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Home from "../src/screens/Home";
 
-it("renders <Home /> correctly", () => {
-	jest.useFakeTimers();
-	renderer.create(<Home />);
+describe("Home", () => {
+	it("renders <Home /> correctly", () => {
+		jest.useFakeTimers();
+		renderer.create(<Home />);
+	});
+
+	it("rendered <Home /> matches snapshot", () => {
+		jest.useFakeTimers();
+		const render = renderer.create(<Home />);
+		expect(render).toMatchSnapshot();
+	});
 });
