@@ -1,6 +1,7 @@
 /** @format */
 
 import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 import axios from "axios";
 import React from "react";
 import {
@@ -11,6 +12,7 @@ import {
 	ActivityIndicator,
 	TouchableOpacity,
 } from "react-native";
+import { stackRoute } from "../types/routes";
 
 const Home: React.FC = () => {
 	const [data, setData] = React.useState<{ title: string; author: string }[]>(
@@ -20,7 +22,7 @@ const Home: React.FC = () => {
 	const [loading, setLoading] = React.useState<boolean>(false);
 	const [bottomLoading, setBottomLoading] = React.useState<boolean>(false);
 
-	const navigation = useNavigation();
+	const navigation = useNavigation<StackNavigationProp<stackRoute>>();
 
 	React.useEffect(() => {
 		!loading && getData();
