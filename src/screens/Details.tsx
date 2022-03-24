@@ -5,7 +5,7 @@ import { View, Text } from "react-native";
 
 const Details: React.FC = (props: any) => {
 	return (
-		<View>
+		<View testID="detail">
 			<Text>{props.route.params.item}</Text>
 		</View>
 	);

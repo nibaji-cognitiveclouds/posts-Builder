@@ -65,6 +65,7 @@ const Home: React.FC = () => {
 	return (
 		<SafeAreaView>
 			<FlatList
+				testID="home-list"
 				data={data}
 				renderItem={({ item }) => (
 					<TouchableOpacity
