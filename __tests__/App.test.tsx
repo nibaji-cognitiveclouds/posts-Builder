@@ -35,5 +35,6 @@ describe("<App />", () => {
 		const tree = render(
 			<Details route={{ params: { item: JSON.stringify({ OK: "ok" }) } }} />
 		);
+		expect(tree.findByTestId("details")).toBeTruthy();
 	});
 });
