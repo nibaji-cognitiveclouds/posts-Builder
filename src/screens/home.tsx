@@ -1,6 +1,7 @@
 /** @format */
 
 import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import axios from "axios";
 import React, { FC, useEffect, useState } from "react";
 import {
@@ -11,6 +12,7 @@ import {
 	TouchableOpacity,
 } from "react-native";
 import { ScreenStyles } from "../styles/screens";
+import { routeProp } from "../types/navigation";
 
 const Home: FC = () => {
 	const [page, setPage] = useState<number>(0);
@@ -18,7 +20,7 @@ const Home: FC = () => {
 
 	const [loading, setLoading] = useState<boolean>(false);
 
-	const navigation = useNavigation();
+	const navigation = useNavigation<NativeStackNavigationProp<routeProp>>();
 
 	useEffect(() => {
 		!loading && getData();
