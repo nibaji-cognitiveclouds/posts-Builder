@@ -10,6 +10,7 @@ import {
 	ActivityIndicator,
 	TouchableOpacity,
 } from "react-native";
+import { ScreenStyles } from "../styles/screens";
 
 const Home: FC = () => {
 	const [page, setPage] = useState<number>(0);
@@ -53,65 +54,23 @@ const Home: FC = () => {
 	}
 
 	return (
-		<View testID="home" style={{ padding: 10 }}>
+		<View testID="home" style={ScreenStyles.screen}>
 			<FlatList
 				testID="home-list"
 				data={data}
 				renderItem={({ item }) => {
 					return (
 						<TouchableOpacity
-							style={{
-								flexDirection: "row",
-								justifyContent: "space-evenly",
-								alignItems: "center",
-								marginVertical: 10,
-								height: 150,
-								width: "100%",
-								flexWrap: "wrap",
-							}}
+							style={ScreenStyles.item}
 							onPress={() => {
 								navigation.navigate("Details", {
 									item: JSON.stringify(item, null, 4),
 								});
 							}}
 						>
-							<Text
-								style={{
-									width: "20%",
-									borderWidth: 1,
-									borderColor: "black",
-									padding: 5,
-									height: 100,
-									flex: 1,
-								}}
-							>
-								{item.created_at}
-							</Text>
-							<Text
-								style={{
-									width: "50%",
-									borderWidth: 1,
-									borderColor: "black",
-									padding: 5,
-									height: 100,
-									flex: 1,
-									flexWrap: "wrap",
-								}}
-							>
-								{item.url}
-							</Text>
-							<Text
-								style={{
-									width: "20%",
-									borderWidth: 1,
-									borderColor: "black",
-									padding: 5,
-									height: 100,
-									flex: 1,
-								}}
-							>
-								{item.author}
-							</Text>
+							<Text style={ScreenStyles.itemText1}>{item.created_at}</Text>
+							<Text style={ScreenStyles.itemText2}>{item.url}</Text>
+							<Text style={ScreenStyles.itemText1}>{item.author}</Text>
 						</TouchableOpacity>
 					);
 				}}
